@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sample</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="container">
+ <div class="header">
+    	<div class="top_section">
+          <span class="image" style="margin-top:10px;float: left;"><img src="/assets/logo.png" alt="Smiley face"  /></span>
+          <div class="navg">
+            <ol>
+            <li><a href="/employees">HOME</a></li>
+            <li><a href="/platforms">PLATFORM</a></li>
+            <li><a href="/projects">PROJECT</a></li>
+            <li><a href="/performances">PERFORMANCE</a></li>
+            <li><a href="/todos">TASK</a></li>
+            </ol> 
+          </div> 
+       </div>       
+       <div class="back_nav">
+          <div id="user_nav">
+            
+            <% if user_signed_in? %>
+            Welcome  <%= current_user.email %>
+            <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+            <% else %>
+            <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+            <% end %>
+          </div>
+      </div>
+  </div>
+   <div class="innerpart" style="width:100%;float:left;">
+    <div class="wrapper">
+   <%= yield %>	 
+    </div>
+   </div>
+  
+  
+<footer>
+        <div class="foot">
+                  <div class="foot_1">  
+                  <p>© Copyright 2012  Shri Ram IT Solutions All Rights Reserved</p>
+                  <a href="http://www.shriramits.com">More details.Click!</a>
+                  <span style="font-weight:bold;">Designed by ROR TEAM</span>
+	      </div>
+	                        
+</footer>
+	
+
+</div>
+</body>
+</html>

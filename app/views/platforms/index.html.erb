@@ -1,0 +1,30 @@
+<div class="list" style="float:left;width: 960px;clear:both;margin-bottom: 15px;margin-left: 10px;">
+  <h1>Listing Platforms</h1>
+  <span class="emp"><img src="/assets/banner_icon.png" alt="Smiley face"/>Number of Platforms(<%#=@count.count%>)</span>
+     <div class="search" style="float:right;margin-right: 20px;margin-top: 15px;">
+     </div>
+    </div>
+<table border="0" cellspacing="0" cellpadding="0" class="stipe">
+  <tr>
+    <th>Platform</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @platforms.each do |platform| %>
+  <tr>
+    <td><%= platform.platform %></td>
+    <td><%= link_to 'Show', platform %></td>
+    <td><%= link_to 'Edit', edit_platform_path(platform) %></td>
+    <td><%= link_to 'Destroy', platform, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+<div style="float:left;margin-left: 10px;">
+<%= paginate @platforms %>
+</div>
+
+<%#= render :partial => "/share/right_side"%>
+
